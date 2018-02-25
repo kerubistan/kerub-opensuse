@@ -1,0 +1,7 @@
+#
+# Local kerub properties
+#
+
+cacheConfigBuilder.baseDir=/var/lib/kerub/store
+kerubRealm.resourcePath=/etc/kerub/shiro.ini
+
