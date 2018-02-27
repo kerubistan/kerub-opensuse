@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Context 
 	docBase="/usr/share/kerub/kerub.war"
-	path="/"
+	path=""
 	unpackWAR="false">
 
 	<Resources className="org.apache.catalina.webresources.StandardRoot">
 		<PreResources 
-			className="org.apache.catalina.webresources.FileResourceSet"
-			base="/etc/kerub/"
+			className="org.apache.catalina.webresources.DirResourceSet"
+			base="/etc/kerub"
+			webAppMount="/WEB-INF/classes"
 			readOnly="true"/>
 	</Resources>
 
