@@ -35,6 +35,6 @@ sources: rpmdirs
 	cp kerub.properties.cluster `rpm --eval "%{_sourcedir}"`
 
 upload: 
-	curl -T $(HOME)/rpmbuild/RPMS/noarch/kerub-master-$(BUILD_ID).noarch.rpm -uk0zka:$(APIKEY) https://api.bintray.com/content/k0zka/kerub-centos/kerub/master/kerub-master-$(BUILD_ID).rpm?publish=1
+	curl -T $(HOME)/rpmbuild/RPMS/noarch/kerub-master-$(BUILD_ID).noarch.rpm -uk0zka:$(APIKEY) https://api.bintray.com/content/k0zka/kerub-opensuse/kerub/master/kerub-master-$(BUILD_ID).rpm?publish=1
 
 

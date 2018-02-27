@@ -2,7 +2,7 @@
 # Cluster-wide kerub configuration
 #
 
-cacheConfigBuilder.clusterName=kerub-centos
+cacheConfigBuilder.clusterName=kerub-openSUSE
 
 #
 # motd
@@ -11,10 +11,10 @@ cacheConfigBuilder.clusterName=kerub-centos
 #
 motd.motd=###It is working!\n\
 \n\
-Your [kerub](https://github.com/kerubistan/kerub) is running now on [CentOS](https://centos.org/)!\n\n\
+Your [kerub](https://github.com/kerubistan/kerub) is running now on [openSUSE](https://opensuse.org/)!\n\n\
 Some useful links:\n\n\
  * [wiki](https://github.com/kerubistan/wiki)\n\
- * [package info](https://github.com/kerubistan/kerub-centos) and post-installation steps\n\
+ * [package info](https://github.com/kerubistan/kerub-opensuse) and post-installation steps\n\
  * [issues](https://github.com/kerubistan/kerub/issues)
 
 
