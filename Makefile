@@ -3,12 +3,6 @@ clean:
 	rpmdev-wipetree
 	rm -f kerub.spec
 
-apache-maven-3.5.2: apache-maven-3.5.2-bin.tar.gz
-	tar -xzf apache-maven-3.5.2-bin.tar.gz
-
-apache-maven-3.5.2-bin.tar.gz:
-	wget http://mirror.easyname.ch/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
-
 all: rpms
 
 kerub.spec:
@@ -16,9 +10,7 @@ kerub.spec:
 	cat kerub.spec.in | sed -e 's/VERSION/$(BUILD_ID)/g' > kerub.spec
 
 
-rpms: sources kerub.spec apache-maven-3.5.2
-	export PATH="$(PATH):$(PWD)/apache-maven-3.5.2/bin/"
-	echo $(PATH)
+rpms: sources kerub.spec 
 	rpmbuild -ba kerub.spec
 
 rpmdirs:
