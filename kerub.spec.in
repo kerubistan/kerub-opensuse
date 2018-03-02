@@ -42,7 +42,7 @@ install -dm 755 %{buildroot}%{loc_configdir}
 install -dm 755 %{buildroot}%{cls_configdir}
 install -dm 755 %{buildroot}%{wardir}
 install -dm 755 %{buildroot}%{_datadir}/tomcat/conf/Catalina/localhost/
-install -dm 755 %{buildroot}%{_datadir}/
+install -dm 775 %{buildroot}%{_datadir}/
 
 install -pm 644 target/${name}*.war %{buildroot}%{wardir}/%{name}.war
 
