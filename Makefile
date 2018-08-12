@@ -1,13 +1,17 @@
 
+
+PACKAGE = $(shell ls target/| grep kerub.*war)
+VERSION = $(shell echo $(PACKAGE) | sed -e 's/kerub-//g' | sed -e 's/.war//g' | sed -e 's/-SNAPSHOT//g')
+
 clean:
 	rpmdev-wipetree
 	rm -f kerub.spec
 
 all: rpms
 
-kerub.spec:
-	echo version will be $(BUILD_ID)
-	cat kerub.spec.in | sed -e 's/VERSION/$(BUILD_ID)/g' > kerub.spec
+kerub.spec: kerub.spec.in
+	echo version will be $(VERSION) build id $(BUILD_ID) - package file is $(PACKAGE)
+	cat kerub.spec.in | sed -e 's/BUILD_ID/$(BUILD_ID)/g' | sed -e 's/PACKAGE/$(PACKAGE)/g' | sed -e 's/VERSION/$(VERSION)/g' > kerub.spec
 
 
 rpms: sources kerub.spec 
@@ -25,8 +29,5 @@ sources: rpmdirs
 	cp logback.xml `rpm --eval "%{_sourcedir}"`
 	cp kerub.properties.local `rpm --eval "%{_sourcedir}"`
 	cp kerub.properties.cluster `rpm --eval "%{_sourcedir}"`
-
-upload: 
-	curl -T $(HOME)/rpmbuild/RPMS/noarch/kerub-master-$(BUILD_ID).noarch.rpm -uk0zka:$(APIKEY) https://api.bintray.com/content/k0zka/kerub-opensuse/kerub/master/kerub-master-$(BUILD_ID).rpm?publish=1
-
+	cp target/$(PACKAGE) `rpm --eval "%{_sourcedir}"`
 
